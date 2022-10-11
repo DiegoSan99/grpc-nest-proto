@@ -1,19 +1,21 @@
 syntax = "proto3";
 
-package order;
+package orders;
 
-service OrderService {
-  rpc CreateOrder (CreateOrderRequest) returns (CreateOrderResponse) {}
+service OrdersService {
+    rpc CreateOrder(CreateOrderRequest) returns (CreateOrderResponse) {}
 }
 
+//Create FedEx order 
+
 message CreateOrderRequest {
-  int32 productId = 1;
-  int32 quantity = 2;
-  int32 userId = 3;
+    string orderdata = 1;
 }
 
 message CreateOrderResponse {
-  int32 status = 1;
-  repeated string error = 2;
-  int32 id = 3;
+    int32 status = 1;
+    repeated string error = 2;
+    string createdOrder = 3;
+    string traceId = 4;
 }
+
